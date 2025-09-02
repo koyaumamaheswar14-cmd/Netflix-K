@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Netflix K - PSPK Movies</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #141414;
+      color: #fff;
+    }
+
+    header {
+      background-color: #000;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      color: #e50914;
+      font-size: 28px;
+    }
+
+    nav a {
+      color: #fff;
+      margin-left: 20px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      background: url('https://upload.wikimedia.org/wikipedia/en/1/1e/OG_Pawan_Kalyan_First_Look.jpg') center/cover no-repeat;
+      height: 60vh;
+      display: flex;
+      align-items: flex-end;
+      padding: 40px;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(to top, #141414 10%, transparent 90%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 16px;
+      max-width: 500px;
+    }
+
+    .section {
+      padding: 20px 40px;
+    }
+
+    .section h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .row {
+      display: flex;
+      overflow-x: auto;
+      gap: 10px;
+      padding-bottom: 10px;
+    }
+
+    .row::-webkit-scrollbar {
+      display: none;
+    }
+
+    .movie {
+      min-width: 150px;
+      height: 225px;
+      background-color: #333;
+      border-radius: 4px;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .movie:hover {
+      transform: scale(1.1);
+    }
+
+    .movie a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+    }
+
+    footer {
+      padding: 20px 40px;
+      text-align: center;
+      font-size: 12px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Netflix K</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Action</a>
+      <a href="#">Drama</a>
+      <a href="#">Political</a>
+      <a href="#">My List</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>OG (Original Gangster)</h2>
+      <p>Pawan Kalyan stars as Ojas Gambheera in this high-octane gangster drama directed by Sujeeth.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h3>Trending Now</h3>
+    <div class="row">
+      <div class="movie">
+        <a href="https://en.wikipedia.org/wiki/OG_(2025_film)" target="_blank" style="background-image: url('https://upload.wikimedia.org/wikipedia/en/1/1e/OG_Pawan_Kalyan_First_Look.jpg');"></a>
+      </div>
+      <div class="movie">
+        <a href="https://en.wikipedia.org/wiki/Ustaad_Bhagat_Singh" target="_blank" style="background-image: url('https://pbs.twimg.com/media/FzK7WZkaMAA3ZzK?format=jpg&name=large');"></a>
+      </div>
+      <div class="movie">
+        <a href="https://en.wikipedia.org/wiki/Gabbar_Singh_(film)" target="_blank" style="background-image: url('https://upload.wikimedia.org/wikipedia/en/1/1f/Gabbar_Singh_Pawan_Kalyan.jpg');"></a>
+      </div>
+      <div class="movie">
+        <a href="https://en.wikipedia.org/wiki/Vakeel_Saab" target="_blank" style="background-image: url('https://upload.wikimedia.org/wikipedia/en/6/6f/Vakeel_Saab_Pawan_Kalyan.jpg');"></a>
+      </div>
+      <div class="movie">
+        <a href="https://en.wikipedia.org/wiki/Bheemla_Nayak" target="_blank" style="background-image: url('https://upload.wikimedia.org/wikipedia/en/5/5f/Bheemla_Nayak_Pawan_Kalyan.jpg');"></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h3>Top Picks for You</h3>
+    <div class="row">
+      <div class="movie">
+        <a href="https://en.wikipedia.org/wiki/Tholi_Prema" target="_blank" style="background-image: url('https://upload.wikimedia.org/wikipedia/en/3/3e/Tholi_Prema.jpg');"></a>
+      </div>
+      <div class="movie">
+        <a href="https://en.wikipedia.org/wiki/Kushi_(2001_film)" target="_blank" style="background-image: url('https://upload.wikimedia.org/wikipedia/en/6/6f/Kushi_Pawan_Kalyan.jpg');"></a>
+      </div>
+      <div class="movie">
+        <a href="https://en.wikipedia.org/wiki/Badri_(2000_film)" target="_blank" style="background-image: url('https://upload.wikimedia.org/wikipedia/en/7/7b/Badri_Pawan_Kalyan.jpg');"></a>
+      </div>
+      <div class="movie">
+        <a href="https://en.wikipedia.org/wiki/Attarintiki_Daredi" target="_blank" style="background-image: url('https://upload.wikimedia.org/wikipedia/en/3/3f/Attarintiki_Daredi_Pawan_Kalyan.jpg');"></a>
+      </div>
+      <div class="movie">
+        <a href="https://en.wikipedia.org/wiki/Sardaar_Gabbar_Singh" target="_blank" style="background-image: url('https://upload.wikimedia.org/wikipedia/en/4/4f/Sardaar_Gabbar_Singh_Pawan_Kalyan.jpg');"></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Netflix K. Powered by PSPK fandom.
+  </footer>
+
+  <script>
+    console.log("Netflix K Loaded");
+  </script>
+
+</body>
+</html>
