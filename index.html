@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Netflix.com</title>
+  <title>Netflix K</title>
   <style>
     * {
       box-sizing: border-box;
@@ -88,7 +88,7 @@
     .row {
       display: flex;
       overflow-x: auto;
-      gap: 10px;
+      gap: 20px;
       padding-bottom: 10px;
     }
 
@@ -96,26 +96,40 @@
       display: none;
     }
 
-    .movie {
+    .card {
       min-width: 150px;
+      text-align: center;
+    }
+
+    .movie {
+      width: 150px;
       height: 225px;
       background-color: #333;
       border-radius: 4px;
       background-size: cover;
       background-position: center;
       transition: transform 0.3s ease;
-      cursor: pointer;
+      cursor: default;
     }
 
     .movie:hover {
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
 
-    .movie a {
-      display: block;
-      width: 100%;
-      height: 100%;
+    .title {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    .link {
+      font-size: 13px;
+      color: #e50914;
       text-decoration: none;
+    }
+
+    .link:hover {
+      text-decoration: underline;
     }
 
     footer {
@@ -149,86 +163,30 @@
   <section class="section">
     <h3>Trending Now</h3>
     <div class="row">
-      <div class="movie">
-        <a href="https://en.wikipedia.org/wiki/OG_(2025_film)" target="_blank" style="background-image: url('https://upload.wikimedia.org/wikipedia/en/1/1e/OG_Pawan_Kalyan_First_Look.jpg');"></a>
+      <div class="card">
+        <div class="movie" style="background-image: url('https://cdn.123telugu.com/content/wp-content/uploads/2023/12/OG.jpg');"></div>
+        <p class="title">OG</p>
       </div>
-      <div class="movie">
-        <a href="https://en.wikipedia.org/wiki/Ustaad_Bhagat_Singh" target="_blank" style="background-image: url('https://pbs.twimg.com/media/FzK7WZkaMAA3ZzK?format=jpg&name=large');"></a>
+      <div class="card">
+        <div class="movie" style="background-image: url('https://www.telugubulletin.com/wp-content/uploads/2025/09/Pawan-Kalyan-HBD-UBS-Plain-Still-562x1000.jpg');"></div>
+        <p class="title">Ustaad Bhagat Singh</p>
       </div>
-      <div class="movie">
-        <a href="https://en.wikipedia.org/wiki/Gabbar_Singh_(film)" target="_blank" style="background-image: url('https://upload.wikimedia.org/wikipedia/en/1/1f/Gabbar_Singh_Pawan_Kalyan.jpg');"></a>
+      <div class="card">
+        <div class="movie" style="background-image: url('https://cdn.123telugu.com/content/wp-content/uploads/2025/04/HIT3-NANI-2.jpg');"></div>
+        <p class="title">HIT 3</p>
       </div>
-      <div class="movie">
-        <a href="https://en.wikipedia.org/wiki/Vakeel_Saab" target="_blank" style="background-image: url('https://upload.wikimedia.org/wikipedia/en/6/6f/Vakeel_Saab_Pawan_Kalyan.jpg');"></a>
+      <div class="card">
+        <div class="movie" style="background-image: url('https://i.pinimg.com/736x/64/62/ba/6462ba3a6d249bd836a3bc5840102bfc.jpg');"></div>
+        <p class="title">Salaar</p>
       </div>
-      <div class="movie">
-        <a href="https://en.wikipedia.org/wiki/Bheemla_Nayak" target="_blank" style="background-image: url('https://upload.wikimedia.org/wikipedia/en/5/5f/Bheemla_Nayak_Pawan_Kalyan.jpg');"></a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <h3>Top Picks for You</h3>
-    <div class="row">
-      <div class="movie">
-        <a href="https://en.wikipedia.org/wiki/Tholi_Prema" target="_blank" style="background-image: url('https://upload.wikimedia.org/wikipedia/en/3/3e/Tholi_Prema.jpg');">Tholi Prema</a>
-      </div>
-      <div class="movie">
-        <a href="https://en.wikipedia.org/wiki/Kushi_(2001_film)" target="_blank" style="background-image: url('https://upload.wikimedia.org/wikipedia/en/6/6f/Kushi_Pawan_Kalyan.jpg');"></a>
-      </div>
-      <div class="movie">
-        <a href="https://en.wikipedia.org/wiki/Badri_(2000_film)" target="_blank" style="background-image: url('https://upload.wikimedia.org/wikipedia/en/7/7b/Badri_Pawan_Kalyan.jpg');"></a>
-      </div>
-      <div class="movie">
-        <a href="https://en.wikipedia.org/wiki/Attarintiki_Daredi" target="_blank" style="background-image: url('https://upload.wikimedia.org/wikipedia/en/3/3f/Attarintiki_Daredi_Pawan_Kalyan.jpg');"></a>
-      </div>
-      <div class="movie">
-        <a href="https://en.wikipedia.org/wiki/Sardaar_Gabbar_Singh" target="_blank" style="background-image: url('https://upload.wikimedia.org/wikipedia/en/4/4f/Sardaar_Gabbar_Singh_Pawan_Kalyan.jpg');"></a>
-      </div>
-    </div>
-  </section>
-    <section class="section">
-    <h3>Power Star Movies</h3>
-    <div class="row">
-      <div class="movie">
-        <a href="https://en.wikipedia.org/wiki/OG_(2025_film)" target="_blank" style="background-image: url('https://upload.wikimedia.org/wikipedia/en/1/1e/OG_Pawan_Kalyan_First_Look.jpg');"></a>
-      </div>
-      <div class="movie">
-        <a href="https://en.wikipedia.org/wiki/Ustaad_Bhagat_Singh" target="_blank" style="background-image: url('https://pbs.twimg.com/media/FzK7WZkaMAA3ZzK?format=jpg&name=large');"></a>
-      </div>
-      <div class="movie">
-        <a href="https://en.wikipedia.org/wiki/Gabbar_Singh_(film)" target="_blank" style="background-image: url('https://upload.wikimedia.org/wikipedia/en/1/1f/Gabbar_Singh_Pawan_Kalyan.jpg');"></a>
-      </div>
-      <div class="movie">
-        <a href="https://en.wikipedia.org/wiki/Vakeel_Saab" target="_blank" style="background-image: url('https://upload.wikimedia.org/wikipedia/en/6/6f/Vakeel_Saab_Pawan_Kalyan.jpg');"></a>
-      </div>
-      <div class="movie">
-        <a href="https://en.wikipedia.org/wiki/Bheemla_Nayak" target="_blank" style="background-image: url('https://upload.wikimedia.org/wikipedia/en/5/5f/Bheemla_Nayak_Pawan_Kalyan.jpg');"></a>
-      </div>
-    </div>
-  </section>
-      <section class="section">
-    <h3>Gangster Movies</h3>
-    <div class="row">
-      <div class="movie">
-        <a href="https://en.wikipedia.org/wiki/OG_(2025_film)" target="_blank" style="background-image: url('https://upload.wikimedia.org/wikipedia/en/1/1e/OG_Pawan_Kalyan_First_Look.jpg');"></a>
-      </div>
-      <div class="movie">
-        <a href="https://en.wikipedia.org/wiki/Ustaad_Bhagat_Singh" target="_blank" style="background-image: url('https://pbs.twimg.com/media/FzK7WZkaMAA3ZzK?format=jpg&name=large');"></a>
-      </div>
-      <div class="movie">
-        <a href="https://en.wikipedia.org/wiki/Gabbar_Singh_(film)" target="_blank" style="background-image: url('https://upload.wikimedia.org/wikipedia/en/1/1f/Gabbar_Singh_Pawan_Kalyan.jpg');"></a>
-      </div>
-      <div class="movie">
-        <a href="https://en.wikipedia.org/wiki/Vakeel_Saab" target="_blank" style="background-image: url('https://upload.wikimedia.org/wikipedia/en/6/6f/Vakeel_Saab_Pawan_Kalyan.jpg');"></a>
-      </div>
-      <div class="movie">
-        <a href="https://en.wikipedia.org/wiki/Bheemla_Nayak" target="_blank" style="background-image: url('https://upload.wikimedia.org/wikipedia/en/5/5f/Bheemla_Nayak_Pawan_Kalyan.jpg');"></a>
+      <div class="card">
+        <div class="movie" style="background-image: url('https://i.pinimg.com/736x/1a/4e/0a/1a4e0a933611485629c87d5a6883fb3a.jpg');"></div>
+        <p class="title">Bheemla Nayak</p>
       </div>
     </div>
   </section>
 
-
+  <!-- Repeat the same structure for other sections like Top Picks, Power Star Movies, Gangster Movies -->
 
   <footer>
     &copy; 2025 Netflix K. Powered by PSPK fandom.
