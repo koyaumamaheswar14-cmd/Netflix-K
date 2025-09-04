@@ -115,6 +115,26 @@
 
     <div class="footer-text">
       New to Netflix Clone? <a href="#" style="color:#e50914;">Sign up now</a>
+      <form id="otpForm">
+  <input type="email" name="email" placeholder="Enter your email" required />
+  <button type="submit">Send OTP</button>
+</form>
+
+<script>
+  document.getElementById('otpForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+
+    const response = await fetch('/.netlify/functions/send-otp', {
+      method: 'POST',
+      body: JSON.stringify({ email }),
+    });
+
+    const result = await response.json();
+    alert(result.message);
+  });
+</script>
+
     </div>
   </div>
 </body>
