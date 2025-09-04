@@ -120,20 +120,7 @@
   <button type="submit">Send OTP</button>
 </form>
 
-<script>
-  document.getElementById('otpForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const email = e.target.email.value;
 
-    const response = await fetch('/.netlify/functions/send-otp', {
-      method: 'POST',
-      body: JSON.stringify({ email }),
-    });
-
-    const result = await response.json();
-    alert(result.message);
-  });
-</script>
 
     </div>
   </div>
