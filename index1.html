@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Netflix Clone - Welcome</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background-color: #000;
+      background-image: url('https://static0.moviewebimages.com/wordpress/wp-content/uploads/2024/08/netflix-logo.jpeg');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      position: relative;
+      color: #fff;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.4); /* lighter overlay for clearer image */
+      z-index: 1;
+    }
+
+    .auth-buttons {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      z-index: 2;
+      display: flex;
+      gap: 15px;
+    }
+
+    .auth-buttons a {
+      text-decoration: none;
+      background-color: #e50914;
+      color: #fff;
+      padding: 10px 24px;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .auth-buttons a:hover {
+      background-color: #b00610;
+      transform: scale(1.05);
+    }
+
+    .center-logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      text-align: center;
+    }
+
+    .center-logo img {
+      width: 300px;
+      max-width: 90%;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+
+  <div class="auth-buttons">
+    <a href="#">Sign In</a>
+    <a href="#">Sign Up</a>
+  </div>
+
+</body>
+</html>
