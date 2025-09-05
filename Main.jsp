@@ -1,10 +1,20 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String username = (String) session.getAttribute("username");
+    if (username == null) {
+        response.sendRedirect("login.jsp");
+        return;
+    }
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NETFLIX </title>
+  <title>NETFLIX</title>
   <style>
+    /* Your full CSS remains unchanged */
+    /* You can paste your original CSS here */  
     * {
       box-sizing: border-box;
       margin: 0;
@@ -146,22 +156,23 @@
   <header>
     <h1>NETFLIX</h1>
     <nav>
+      <span>Welcome, <%= username %></span>
       <a href="#">Home</a>
       <a href="#">My Favourites</a>
       <a href="#">Downloads</a>
       <a href="#">Settings</a>
+      <a href="logout.jsp" style="color:#e50914; margin-left:20px;">Logout</a>
     </nav>
   </header>
 
   <section class="hero">
     <div class="hero-content">
-    
+      <!-- Optional hero text -->
     </div>
   </section>
 
-
-
-  <section class="section">
+  <!-- All your movie sections remain the same -->
+  <!-- Paste your full HTML content for Trending Now, Top Picks, etc. --> <section class="section">
     <h3>Trending Now</h3>
     <div class="row">
       <div class="card">
@@ -219,10 +230,6 @@
         <p class="title">HIT-The Second Case</p>
       </div>
       <div class="card">
-        <div class="movie" style="background-image: url('https://www.telugubulletin.com/wp-content/uploads/2025/09/Pawan-Kalyan-HBD-UBS-Plain-Still-562x1000.jpg');"></div>
-        <p class="title"></p>
-      </div>
-      <div class="card">
         <div class="movie" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmQyEf3bc4y71Z-uDkiHuQog1ZvmVcC7fc1A&s.jpg');"></div>
         <p class="title">Virupaksha</p>
       </div>
@@ -241,7 +248,7 @@
     <div class="row">
       <div class="card">
         <div class="movie" style="background-image: url('https://thefanboy.in/cdn/shop/articles/coolie_poster_6d5f888e-aeab-4e22-b3fe-48e971375877.jpg?v=1752221470.jpg');"></div>
-        <p class="title">Coolie</p></p>
+        <p class="title">Coolie</p>
       </div>
       <div class="card">
         <div class="movie" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK1vuPCt1CFlhDW4M7zAfdMNKqxjUeMXSo7A&s.jpg');"></div>
@@ -286,7 +293,6 @@
   </footer>
 
   <script>
- 
     console.log("Netflix.com loaded");
   </script>
 
