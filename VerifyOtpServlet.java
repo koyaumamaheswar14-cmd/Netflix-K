@@ -21,19 +21,18 @@ public class VerifyOtpServlet extends HttpServlet {
         String email = request.getParameter("email");
         String otp = request.getParameter("otp");
 
-        if (email == null || otp == null || email.isEmpty() || otp.isEmpty()) {
-            response.getWriter().write("<script>alert('Email and OTP are required'); window.location='index.html';</script>");
+        if (email == null || otp == null || email.trim().isEmpty() || otp.trim().isEmpty()) {
+            sendAlert(response, "Email and OTP are required", "index.html");
             return;
         }
 
         Properties dbProps = new Properties();
         try (InputStream input = getServletContext().getResourceAsStream("/WEB-INF/db.properties")) {
-            if (input == null) {
-                logger.severe("db.properties file not found");
-                response.getWriter().write("<script>alert('Server error: Configuration missing'); window.location='index.html';</script>");
-                return;
-            }
             dbProps.load(input);
+        } catch (IOException e) {
+            logger.severe("Failed to load DB config: " + e.getMessage());
+            sendAlert(response, "Server error occurred", "index.html");
+            return;
         }
 
         String dbUrl = dbProps.getProperty("db.url");
@@ -42,10 +41,9 @@ public class VerifyOtpServlet extends HttpServlet {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-
             try (Connection conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword)) {
                 PreparedStatement ps = conn.prepareStatement(
-                        "SELECT otp, otp_expiry FROM users WHERE email = ?");
+                    "SELECT otp, otp_expiry FROM users WHERE email = ?");
                 ps.setString(1, email);
                 ResultSet rs = ps.executeQuery();
 
@@ -54,10 +52,10 @@ public class VerifyOtpServlet extends HttpServlet {
                     Timestamp expiry = rs.getTimestamp("otp_expiry");
 
                     if (dbOtp != null && dbOtp.equals(otp) &&
-                            expiry != null && expiry.toLocalDateTime().isAfter(LocalDateTime.now())) {
+                        expiry != null && expiry.toLocalDateTime().isAfter(LocalDateTime.now())) {
 
                         PreparedStatement clearOtp = conn.prepareStatement(
-                                "UPDATE users SET otp = NULL, otp_expiry = NULL WHERE email = ?");
+                            "UPDATE users SET otp = NULL, otp_expiry = NULL WHERE email = ?");
                         clearOtp.setString(1, email);
                         clearOtp.executeUpdate();
 
@@ -65,18 +63,20 @@ public class VerifyOtpServlet extends HttpServlet {
                         session.setAttribute("email", email);
                         response.sendRedirect("Main.html");
                     } else {
-                        response.getWriter().write("<script>alert('Invalid or expired OTP'); window.location='index.html';</script>");
+                        sendAlert(response, "Invalid or expired OTP", "index.html");
                     }
                 } else {
-                    response.getWriter().write("<script>alert('User not found'); window.location='index.html';</script>");
+                    sendAlert(response, "User not found", "index.html");
                 }
             }
-        } catch (ClassNotFoundException e) {
-            logger.severe("JDBC Driver not found: " + e.getMessage());
-            response.getWriter().write("<script>alert('Server error: Driver issue'); window.location='index.html';</script>");
-        } catch (SQLException e) {
-            logger.severe("Database error: " + e.getMessage());
-            response.getWriter().write("<script>alert('Server error: Database issue'); window.location='index.html';</script>");
+        } catch (Exception e) {
+            logger.severe("Error verifying OTP: " + e.getMessage());
+            sendAlert(response, "Server error occurred", "index.html");
         }
+    }
+
+    private void sendAlert(HttpServletResponse response, String message, String redirectPage) throws IOException {
+        PrintWriter out = response.getWriter();
+        out.write("<script>alert('" + message + "'); window.location='" + redirectPage + "';</script>");
     }
 }
