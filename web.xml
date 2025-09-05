@@ -1,0 +1,19 @@
+<web-app>
+  <servlet>
+    <servlet-name>SendOtpServlet</servlet-name>
+    <servlet-class>SendOtpServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SendOtpServlet</servlet-name>
+    <url-pattern>/send-otp</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>VerifyOtpServlet</servlet-name>
+    <servlet-class>VerifyOtpServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>VerifyOtpServlet</servlet-name>
+    <url-pattern>/verify-otp</url-pattern>
+  </servlet-mapping>
+</web-app>
