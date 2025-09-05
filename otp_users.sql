@@ -1,0 +1,8 @@
+CREATE DATABASE IF NOT EXISTS netflix_clone;
+USE netflix_clone;
+
+CREATE TABLE otp_users (
+  email VARCHAR(255) PRIMARY KEY,
+  otp VARCHAR(6),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
