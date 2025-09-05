@@ -1,12 +1,11 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.*;
 
 public class DBUtil {
-    public static Connection getConnection() throws Exception {
-        String url = "jdbc:mysql://localhost:3306/netflix_clone";
-        String user = "root";
-        String password = "uma123"; // Replace with your actual password
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        return DriverManager.getConnection(url, user, password);
+    private static final String URL = "jdbc:mysql://localhost:3306/netflix_clone";
+    private static final String USER = "root"; // replace with your MySQL username
+    private static final String PASS = "uma123"; // replace with your MySQL password
+
+    public static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(URL, USER, PASS);
     }
 }
