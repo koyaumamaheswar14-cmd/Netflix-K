@@ -6,6 +6,7 @@ import javax.servlet.annotation.*;
 import java.io.*;
 import java.sql.*;
 import java.time.LocalDateTime;
+import java.util.Properties;
 import java.util.logging.*;
 
 @WebServlet("/verify-otp")
@@ -25,16 +26,24 @@ public class VerifyOtpServlet extends HttpServlet {
             return;
         }
 
+        Properties dbProps = new Properties();
+        try (InputStream input = getServletContext().getResourceAsStream("/WEB-INF/db.properties")) {
+            if (input == null) {
+                logger.severe("db.properties file not found");
+                response.getWriter().write("<script>alert('Server error: Configuration missing'); window.location='index.html';</script>");
+                return;
+            }
+            dbProps.load(input);
+        }
+
+        String dbUrl = dbProps.getProperty("db.url");
+        String dbUser = dbProps.getProperty("db.user");
+        String dbPassword = dbProps.getProperty("db.password");
+
         try {
-            // Load JDBC driver (optional in modern setups)
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            // Use environment variables or config file for credentials in production
-            try (Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/netflix_clone",
-                    "root",
-                    "uma123")) {
-
+            try (Connection conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword)) {
                 PreparedStatement ps = conn.prepareStatement(
                         "SELECT otp, otp_expiry FROM users WHERE email = ?");
                 ps.setString(1, email);
@@ -47,7 +56,6 @@ public class VerifyOtpServlet extends HttpServlet {
                     if (dbOtp != null && dbOtp.equals(otp) &&
                             expiry != null && expiry.toLocalDateTime().isAfter(LocalDateTime.now())) {
 
-                        // Optional: Invalidate OTP after successful verification
                         PreparedStatement clearOtp = conn.prepareStatement(
                                 "UPDATE users SET otp = NULL, otp_expiry = NULL WHERE email = ?");
                         clearOtp.setString(1, email);
